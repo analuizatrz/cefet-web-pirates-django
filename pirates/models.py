@@ -6,3 +6,6 @@ class Tesouro(models.Model):
     quantidade = models.IntegerField()
     preco = models.DecimalField(max_digits=10,decimal_places=2)
     img_tesouro = models.ImageField(upload_to="imgs")
+
+    def __str__(self):
+        return "{nome}, {quantidade} R$ {preco}".format(nome=self.nome, quantidade=self.quantidade, preco=self.preco)

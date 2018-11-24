@@ -5,6 +5,7 @@
   <h1>Gerenciador de Tesouros </h1>
   <section id="tesouros">
     <table>
+        <p>Ola <strong>{{nome_pessoa}}</strong> de {{cidade}}!</p>
       <caption>Estes são os tesouros acumulados do Barba-Ruiva em suas aventuras</caption>
       <thead>
         <tr>
@@ -17,15 +18,17 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td><img src="{% static "imgs/exemplo-de-icone.png" %}"></td>
-          <td>Tesouro de exemplo</td>
-          <td>200</td>
-          <td>5</td>
-          <td>1.000</td>
-          <td><img src="" alt="editar"></td>
-          <td><img src="" alt="Deletar"></td>
-        </tr>
+          {% for tesouro in tesouros %}
+          <tr>
+            <td><img src="{% static "imgs/calice.png" %}"></td>
+            <td>{{tesouro.nome}}</td>
+            <td>{{tesouro.preco}}</td>
+            <td>{{tesouro.quantidade}}</td>
+            <td>{{tesouro.total}}</td>
+            <td><img src="{% static "imgs/edit.png" %}" alt="editar"></td>
+            <td><img src="{% static "imgs/delete.svg" %}" alt="Deletar"></td>
+          </tr>
+          {%endfor%}
       </tbody>
       <tfoot>
         <tr>
